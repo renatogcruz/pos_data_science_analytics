@@ -9,3 +9,8 @@ devtools::install_github("hadley/r4ds")
 
 Repositório original [aqui](https://github.com/hadley/r4ds).
 
+## Blogs
+
+- Blog do [RStudio](https://blog.rstudio.com/)
+- Blog da [comunidade R](https://www.r-bloggers.com/)
+
