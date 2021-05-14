@@ -1,3 +1,5 @@
+# Estimativas de Localização (média, média ponderada, mediana, mediana ponderada)
+
 # este dataset contém um conjunto de dados da população e as taxas
 # de homicídio (em homicídios/100 mil pessoas) em cada estado.
 
