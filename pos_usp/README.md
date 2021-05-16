@@ -4,29 +4,29 @@ Especilização em data science e analytics com foco em machine learning, modeli
 
 ___________
 
-# Módulos 1 - Exploratory Analytics, Predictive Analytics & Machine Learning
+## Módulos 1 - Exploratory Analytics, Predictive Analytics & Machine Learning
 
-# Aula 1 
+### Aula 1 
 
 Aula inaugural
 
-# [Aula 2](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/Aula_002)
+### [Aula 2](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/Aula_002)
 
 Estruturas de Bancos de Dados, Tipos de Variáveis e Escalas de Mensuração
 
-# Aula 3
+### Aula 3
 
 ...
 
 
 ___________
 
-# Módulos 2 - Tendências em Data Science e Analytics
+## Módulos 2 - Tendências em Data Science e Analytics
 
 ...
 
 ___________
 
-# Módulos 1 - Data Science e Big Data no Ambiente de Negócios
+## Módulos 1 - Data Science e Big Data no Ambiente de Negócios
 
 ...
