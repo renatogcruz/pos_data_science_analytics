@@ -1,0 +1,1 @@
+base = read.csv("credit_data.csv")
