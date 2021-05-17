@@ -26,7 +26,12 @@ base$age = ifelse(base$age<0, 40.92, base$age) # alterando valores
 base[is.na(base$age), ]
 base$age = ifelse(is.na(base$age), mean(base$age, na.rm = TRUE), base$age)
 
+# ESCALONAMENTO DE ATRIBUTOS
+# tratando dados com escalas diferentes
+# padronização (standardisation)
+# normalização (normalization)
 
+base[, 1:3] = scale(base[, 1:3])
 
 
 
