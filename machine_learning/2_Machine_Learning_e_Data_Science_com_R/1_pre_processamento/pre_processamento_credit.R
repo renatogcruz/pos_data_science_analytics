@@ -22,6 +22,11 @@ mean(base$age, na.rm = TRUE)                  # media, tirando valores NA (isso 
 mean(base$age[base$age>0], na.rm = TRUE)       # média sem dados incons. e valores NA
 base$age = ifelse(base$age<0, 40.92, base$age) # alterando valores
 
+# TRATAMENTO DE VALORES FALTANTES
+base[is.na(base$age), ]
+base$age = ifelse(is.na(base$age), mean(base$age, na.rm = TRUE), base$age)
+
+
 
 
 
