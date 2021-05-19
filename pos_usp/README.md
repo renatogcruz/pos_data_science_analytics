@@ -16,6 +16,20 @@ Estruturas de Bancos de Dados, Tipos de Variáveis e Escalas de Mensuração
 
 ### Aula 3
 
+Introdução ao Machine Learning I
+
+### Aula 4
+
+Introdução ao Machine Learning II
+
+### Aula 5
+
+Unsupervised Machine Learning: Clustering I
+
+### Aula 6
+
+Unsupervised Machine Learning: Clustering II
+
 ...
 
 
