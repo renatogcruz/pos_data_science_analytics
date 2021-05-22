@@ -33,5 +33,12 @@ base$age = ifelse(is.na(base$age), mean(base$age, na.rm = TRUE), base$age)
 
 base[, 1:3] = scale(base[, 1:3])
 
+# Base de treinamento e teste
+if(!require(caTools)) install.packages("caTools") # Instalação do pacote caso não esteja instalado
+library(caTools) 
 
+set.seed(1)
+divisao = sample.split(base$default, SplitRatio = 0.75)
 
+base_treinamento = subset(base, divisao == TRUE)
+base_teste = subset(base, divisao == FALSE)
