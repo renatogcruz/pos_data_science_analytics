@@ -6,6 +6,9 @@
 # Exemplo p?gina 12
 # Calcule a m?dia, a m?dia aparada e a mediana para a popula??o
 
+# Desfazendo notação cientifica
+options(scipen = 999)
+
 state <- read.csv(file='C:/Users/Renato/Dropbox/pos_usp/usp_data_open/statistic/estatistica_pratica_para_ciencieas_de_dados/data/state.csv')
 
 # m?dia
@@ -59,4 +62,35 @@ boxplot(state[["Population"]]/1000000, ylab="Population (millions)")
 
 
 # Tabela de frequÃªncias e histogramas - pÃ¡gina 22
-# 
+# Um gráfico da tabela de frequência com as colunas no eixo x e a contagem no 
+# eixo y
+
+breaks <- seq(from=min(state[["Population"]]),
+              to=max(state[["Population"]]), length=11)
+pop_freq <- cut(state[["Population"]], breaks=breaks,
+                right = TRUE, include.lowest = TRUE)
+
+tabela <- table(pop_freq)
+tabela
+
+
+# histograma de populações estaduais
+hist(state[["Population"]], breaks = breaks)
+
+# Um histograma é um jeito de visualizar uma tabela de frequência, com as colunas
+# no eixo x e a contagem no eixo y
+
+# Estimativas de Densidade - página 24
+
+# Um gráfico de densidade pode ser visto como um histograma simplificado, apesar
+# de ser tipicamente calculado diretamente a partir dos dados atráves de uma 
+# estimativa de densidade de Kernel
+
+# gerando um gráfico de estimativa de densidade sobresposto um histograma
+
+
+hist(state[["Murder.Rate"]], freq=FALSE)
+lines(density(state[["Murder.Rate"]], lwd=3, col="blue"))
+
+# Explorando Dados Binários e Categóricos - pág. 26
+
