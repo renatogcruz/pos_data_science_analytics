@@ -94,3 +94,14 @@ lines(density(state[["Murder.Rate"]], lwd=3, col="blue"))
 
 # Explorando Dados Binários e Categóricos - pág. 26
 
+dfw <- read.csv(file='C:/Users/Renato/Dropbox/pos_usp/usp_data_open/statistic/estatistica_pratica_para_ciencieas_de_dados/data/dfw_airline.csv')
+barplot(as.matrix(dfw)/6, cex.axis=.5) #
+
+# Correlação
+
+sp500 <- read.csv(file='C:/Users/Renato/Dropbox/pos_usp/usp_data_open/statistic/estatistica_pratica_para_ciencieas_de_dados/data/sp500_sectors.csv')
+
+etfs <- sp500[row.names(sp500_px)>"2012-07-01",
+              sp500_sym[sp500_sym$sector=="etf", 'symbol']]
+library(corrplot)
+corrplot(cor(etfs), method = "ellipse")
