@@ -1,0 +1,234 @@
+---
+title: "Cap. 03 Basico"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+## Livro curso R
+
+<https://livro.curso-r.com/3-r-base.html>
+
+
+## Pedindo ajuda
+
+```{r pressure, echo=FALSE}
+?mean
+
+help(mean)
+```
+
+## R como calculadora
+
+```{r pressure, echo=FALSE}
+# adicao
+1 + 1
+
+# subtracao
+4 - 2
+
+# multiplicacao
+2 * 3
+
+# divisao
+5 / 3
+```
+
+Exercício
+
+```{r pressure, echo=FALSE}
+num <- (1 + sqrt(5)) / 2
+
+num
+```
+## 3.3 Objetos e funções
+
+
+## 3.4 Data frames
+
+```{r pressure, echo=FALSE}
+mtcars
+
+```
+
+```{r pressure, echo=FALSE}
+head(mtcars)
+
+```
+
+## 3.5 Classes
+
+```{r pressure, echo=FALSE}
+class(mtcars)
+
+```
+As classes mais básicas dentro do R são:
+
+* numeric
+* character
+* logical
+
+Exercicio:
+
+```{r pressure, echo=FALSE}
+nome <- "Renato Godoi da Cruz"
+cidade <- "Araras"
+estado <- "São Paulo"
+
+nchar(nome)
+
+```
+```{r pressure, echo=FALSE}
+paste(cidade, estado)
+
+```
+
+
+
+```{r pressure, echo=FALSE}
+paste(cidade, estado, sep = " - ")
+
+```
+
+```{r pressure, echo=FALSE}
+paste(cidade,  " - ", estado)
+
+```
+```{r pressure, echo=FALSE}
+paste0(cidade,  " - ", estado)
+
+```
+
+## 3.6 Vetores
+
+São estruturas muito importantes dentro do R. Em especial, pensando em análise
+de dados, precisamos estudá-los pois cada coluna de um *data frame* será repre-
+senda como um vetor.
+
+```{r pressure, echo=FALSE}
+vetor1 <- c(1, 5, 3, -10)
+vetor2 <- c("a", "b", "c")
+
+vetor1
+
+```
+```{r pressure, echo=FALSE}
+#vetor de 1 a 10
+
+1:10
+
+```
+
+
+```{r pressure, echo=FALSE}
+# vetor de -3 a 3
+
+-3:3
+
+```
+
+
+```{r pressure, echo=FALSE}
+vetor1[2]
+
+```
+
+```{r pressure, echo=FALSE}
+vetor1[c(1, 2, 4)]
+
+```
+
+Um vetor só pode guardar um tipo de objeto.Se tentarmos misturar duas classes, o
+R vai apresentar o comportamento conhecido como **coerção**
+
+```{r pressure, echo=FALSE}
+vetor3 <- c(1, 2, "a")
+
+```
+
+
+```{r pressure, echo=FALSE}
+vetor3
+
+```
+
+```{r pressure, echo=FALSE}
+class(vetor3)
+
+```
+Podemos fazer operações com vetores
+
+```{r pressure, echo=FALSE}
+vetor4 <- c(0, 5, 20, -3)
+vetor4 + 1
+
+```
+```{r pressure, echo=FALSE}
+vetor4 * 10
+
+```
+```{r pressure, echo=FALSE}
+vetor5 <- c(1, 2, 3)
+vetor6 <- c(10, 20, 30)
+
+vetor5 + vetor6
+
+```
+Neste caso, o R irá alinhar os dois vetores e somar elemento a elemeto. Esse 
+tipo de comportamento é chamado de **vetorização**
+
+Exercício
+
+```{r pressure, echo=FALSE}
+vet <- c(0:5)
+
+vet[c(1, 6)]
+
+```
+```{r pressure, echo=FALSE}
+vet_negativo <- vet * -1
+
+```
+
+```{r pressure, echo=FALSE}
+frutas <- c("banana", "maça", "mamão")
+frutas
+
+```
+
+```{r pressure, echo=FALSE}
+length(frutas)
+
+```
+```{r pressure, echo=FALSE}
+paste("Eu gosto de", frutas)
+
+```
+
+```{r pressure, echo=FALSE}
+sum(1:100)
+
+```
+
+```{r pressure, echo=FALSE}
+dolar_subiu <- c(TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE)
+
+```
+
+
+```{r pressure, echo=FALSE}
+length(dolar_subiu)
+dolar_subiu[2]
+sum(dolar_subiu)
+mean(dolar_subiu)
+
+
+```
+
+## 3.7 Testes lógicos
+
+
+
+
+
