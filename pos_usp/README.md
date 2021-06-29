@@ -10,13 +10,11 @@ ___________
 
 - [Aula 2](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/Aula_002) - Estruturas de Bancos de Dados, Tipos de Variáveis e Escalas de Mensuração
 
-- Aula 3 - Introdução ao Machine Learning I
-
-- Aula 4 - Introdução ao Machine Learning II
-
-- Aula 5 - Unsupervised Machine Learning: Clustering I
-
-- Aula 6 - Unsupervised Machine Learning: Clustering II
+- Aula 3 - Introdução ao Machine Learning 
+- Aula 4 - Unsupervised Machine Learning: Clustering
+- Aula 5 - Unsupervised Machine Learning: Análise Fatorial e PCA
+- Aula 6 - Unsupervised Machine Learning: Análise de Correspondência Simples e Múltipla
+- Aula 7 - Supervised Machine Learning: Análise de Regressão Simples e Múltipla I
 
 ...
 
