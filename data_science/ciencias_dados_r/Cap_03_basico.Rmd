@@ -1,8 +1,8 @@
 ---
 title: "Cap. 03 Basico"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 
@@ -225,9 +225,104 @@ mean(dolar_subiu)
 
 
 ```
-
 ## 3.7 Testes lógicos
 
+Poder fazer qualquer tipo de operação lógica é um dos motivos pelos quais 
+programas nos deixar mais eficientes.Dê bastante atenção a elas, pois usaremos
+comparações lógicas o tempo todo.
+
+```{r pressure, echo=FALSE}
+TRUE <- 1
+
+```
+```{r pressure, echo=FALSE}
+TRUE <- 0
+
+```
+TRUE e FALSE são exclusivos. Não dá para atribuir valores.
+
+Checando a classe desses valores, vemos que são lógicos
+
+```{r pressure, echo=FALSE}
+class(TRUE)
+
+```
+Explorando os testes lógicos
+
+```{r pressure, echo=FALSE}
+# Testes com resultado verdadeiro
+
+1 == 1
+"a" == "a"
+
+# Teste com resultado falso
+"a" == "b"
+1 == 2
+
+```
+Teste valores diferentes
+```{r pressure, echo=FALSE}
+1 != 1
+"a" != "a"
+1 !=2
+"a" != "b"
+```
+Para comparar se um valor é maior que outro
+```{r pressure, echo=FALSE}
+3 > 3
+3 >= 3
+3 < 3
+3 <= 3
+
+```
+Outro operador muito útil é o %in%. Com ele, podemos verificar se um valor está 
+dentro de um conjunto de valores (vetor)
+
+```{r pressure, echo=FALSE}
+3 %in% c(1, 2, 3)
+"a" %in% c("b", "c")
+
+```
+Testes lógicos fazem parte de uma operação muito comum na manipulação de base
+de dados: os **filtros**
+
+```{r pressure, echo=FALSE}
+minha_coluna <- c(1, 3, 0, 10, -1, 5, 20)
+
+minha_coluna > 3              # primero teste           
+
+minha_coluna[minha_coluna > 3]# segundo teste
+```
+No primeiro teste, R transformou (reciclou) o valor 3 no vetor c(3, 3, 3, 3, 3, 3
+3) e testou se c(1, 3, 0, 10, -1, 5, 20) > c(3, 3, 3, 3, 3, 3, 3).
+
+Como os operadores lógicos também são vetorizados (fazem operações elemento a 
+elemento), os testes realizados foram 1 > 3, 3 > 3, 0 > 3, 10 > 3, -1 > 3, 
+5 > 3 e, finalmente, 20 > 3. Cada um desses testes tem o seu prório resultado.
+Por isso a saída de minha_coluna > 3 é um vetor de verdadeiros e falsos, respectivos
+a cada um desses 7 testes.
+
+O segundo teste usa os valores TRUE e FALSE para selecionar elementos de um vetor.
+A regra é muito simples: **retornar** as posições que receberem TRUE, **não retornar** as posições que recberem FALSE. Portanto, a segunda operação é equivalente a:
+
+minha_coluna[c(F, F, F, T, F, T, T)]
+## [1] 10 5 20
+
+>>Tabela dos principais operadores lógicos<<
+
+Exercícios
+```{r pressure, echo=FALSE}
+segredo <- round(runif(1, min = 0, max = 10))
+```
+
+```{r pressure, echo=FALSE}
+# testando se o segredo é maior ou igual a 0
+
+segredo[segredo >= 0]
+```
+```{r pressure, echo=FALSE}
+segredo[segredo <= 10]
+```
 
 
 
