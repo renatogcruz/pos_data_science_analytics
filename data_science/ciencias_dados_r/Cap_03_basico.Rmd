@@ -15,7 +15,10 @@ output:
 
 ```{r pressure, echo=FALSE}
 ?mean
+```
 
+
+```{r pressure, echo=FALSE}
 help(mean)
 ```
 
@@ -323,6 +326,70 @@ segredo[segredo >= 0]
 ```{r pressure, echo=FALSE}
 segredo[segredo <= 10]
 ```
+
+# 3.8 Valores especiais
+
+```{r pressure, echo=FALSE}
+vetor <- c(1, 2, 3)
+
+vetor[4]
+
+```
+Esse valor (NA) é tratado de forma especial no R. Ele representa a ausência de 
+informaçõe, isto é, a informação existe, mas nós (e o R) não sabemos qual é.
+
+O NA para o R nada mais é do que o valor faltante ou omisso da Estatítica.
+```{r pressure, echo=FALSE}
+5 == NA
+
+```
+O código acima pergunta "cinco é igual a um valor que existe, mas que não sei 
+qual é?"
+
+Outro exemplo
+
+```{r pressure, echo=FALSE}
+idade_ana <- 30
+idade_beto <- NA
+idade_carla <- NA
+
+idade_ana == idade_beto
+
+```
+Eu sei a idade da ana, mas como vou saber a idade de beto
+
+```{r pressure, echo=FALSE}
+idade_carla == idade_beto
+
+```
+Não sabemos a idade de carla ou beto
+
+Mas e quando queremos saber se um valor é NA ou não?
+
+```{r pressure, echo=FALSE}
+is.na(NA)
+
+```
+```{r pressure, echo=FALSE}
+is.na(idade_ana)
+
+```
+```{r pressure, echo=FALSE}
+is.na(idade_beto)
+
+```
+Assim como NA, existem outros valores especiais muito comuns no R
+O NaN (not a number) representa indefições matemáticas
+
+```{r pressure, echo=FALSE}
+0/0
+
+```
+```{r pressure, echo=FALSE}
+log(-1)
+
+```
+
 
 
 
