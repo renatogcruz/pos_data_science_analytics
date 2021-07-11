@@ -1,10 +1,10 @@
-# Analise_Componentes_Principais
+# Análise Componentes Principais com Python
 
-Baseado nos exemplos do excelente Professor Rafael de Freitas Souza feitos em R.
+Este exemplo foi adaptado de [Marcus Costa](https://github.com/Marcus-V-Freitas/Analise_Componentes_Principais).
 
-Pequeno exemplo feito em Python, de uma PCA (Análise de Componentes Principais) completa:
+Aplicação em Python de uma Análise de Componentes Principais (PCA) 
 
-Tópicos:
+Tópicos abordados:
 * Variância e Desvio Padrão
 * Covariância
 * Correlação
@@ -16,4 +16,4 @@ Tópicos:
 * Comunalidades
 * Scores Fatorias
 * Variância Compartilhada
-* Ranking Final de Notas de 100 alunos.
+* Ranking Final.
