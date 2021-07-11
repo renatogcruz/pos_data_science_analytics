@@ -6,15 +6,12 @@ ___________
 
 ## Módulos 1 - Exploratory Analytics, Predictive Analytics & Machine Learning
 
-- Aula 1 - Aula inaugural
-
-- [Aula 2](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/Aula_002) - Estruturas de Bancos de Dados, Tipos de Variáveis e Escalas de Mensuração
-
-- Aula 3 - Introdução ao Machine Learning 
-- Aula 4 - Unsupervised Machine Learning: Clustering
-- Aula 5 - Unsupervised Machine Learning: Análise Fatorial e PCA
-- Aula 6 - Unsupervised Machine Learning: Análise de Correspondência Simples e Múltipla
-- Aula 7 - Supervised Machine Learning: Análise de Regressão Simples e Múltipla I
+- [Estruturas de Bancos de Dados, Tipos de Variáveis e Escalas de Mensuração]((https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/Aula_002))
+- Introdução ao Machine Learning 
+- [Unsupervised Machine Learning: Clustering](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/2_Clustering)
+- [Unsupervised Machine Learning: Análise Fatorial e PCA](https://github.com/renatogcruz/pos_data_science_analytics/tree/main/pos_usp/3_Analise_Fatorial_e_PCA)
+- Unsupervised Machine Learning: Análise de Correspondência Simples e Múltipla
+- Supervised Machine Learning: Análise de Regressão Simples e Múltipla I
 
 ...
 
