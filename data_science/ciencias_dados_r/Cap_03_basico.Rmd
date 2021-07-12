@@ -389,6 +389,213 @@ O NaN (not a number) representa indefições matemáticas
 log(-1)
 
 ```
+3.8 Valores especiais
+
+Vimos anteriormente que se tentarmos acessar uma posição inexistente em um vetor, 
+ele retornará um valor estranho
+
+```{r pressure, echo=FALSE}
+vetor <- c(1, 2, 3)
+vetor[4]
+```
+Esse valor (NA) é tratado de forma especial no R. Ele representa a ausência de
+informação, isto é, a informação existe, mas nós (e o R) não sabemos qual é.
+
+O NA para o R nada mais é do que o valor faltante ou omisso da Estatística. O 
+famoso missing. Geralmente, quando temos uma base de valores faltando, como a idade
+para alguns individuos da nossa amostra, não significa que a idade deles não
+existe. Sginifica apenas que não temos essa informação.
+
+Esse conceito é importante para entender o resultado da expressão abaixo:
+```{r pressure, echo=FALSE}
+5 == NA
+```
+O significado por trás do NA - um valor desconhecido -, a pergunta fica "5 é igual
+a um valor desconhecido?"
+
+O Inf (infinito) representa um número muito grande ou um limite matemático:
+
+```{r pressure, echo=FALSE}
+# O computador não consegue representar um número tão grande.
+# O número é então """arredondado""" para infinito.
+10^310
+```
+```{r pressure, echo=FALSE}
+# Limite matemático
+1 / 0
+```
+```{r pressure, echo=FALSE}
+# O "menos infinito" também existe
+-1 / 0
+```
+O NULL (nulo) representa a ausência de um objeto. Ele não tem significado prático
+para a análise de dados.
+
+Da mesma forma que utilizados is.na() para testar se um objeto é NA, utilizamos 
+is.nan(), is.infinite() ou is.null() para testar se um objeto é NaN, infinito ou
+nulo
+
+```{r pressure, echo=FALSE}
+nao_sou_um_numero <- NaN
+objeto_infinito <- Inf
+objeto_nulo <- NULL
+```
+```{r pressure, echo=FALSE}
+is.nan(nao_sou_um_numero)
+```
+```{r pressure, echo=FALSE}
+is.infinite(objeto_infinito)
+```
+```{r pressure, echo=FALSE}
+is.null(objeto_nulo)
+```
+3.9 Listas
+
+São objetos muito importantes dentro do R. Primeiro porque todo data frame é uma 
+lista. Segundo pq elas são bem parecidas com vetores, mas com uma diferença 
+essencial: podemos misturar diferentes classes de objetos dentro dela.
+
+Para criar uma lista, rodamos list(valor1, valor2,  valor3)
+
+```{r pressure, echo=FALSE}
+list(1, "a", TRUE)
+```
+Note que não houve coerção. Ainda temos um valor número, um texto e um valor lógico
+dentro da lista.
+
+O susetting de listas é um pouco diferente do que  de valores. Isso porque cada 
+elemento de uma lista também é uma lista. Veja o que acontece se tentarmos usar []
+para pegar um elemento de uma lista:
+
+```{r pressure, echo=FALSE}
+lista <- list(1, "a", TRUE)
+lista[1]
+```
+```{r pressure, echo=FALSE}
+class(lista[1])
+```
+O R nos retorna uma lista com apenas aquele elemento. Se quisermos o elemento
+de fato dentro de cada posição, precisamos usar dois colchotes:
+
+```{r pressure, echo=FALSE}
+lista[[1]]
+```
+```{r pressure, echo=FALSE}
+class(lista[[1]])
+```
+Cada elemento de uma lista ser uma lista é importante pois isso nos permite
+colocar vetores de tamanhos diferentes em cada posição. Isso faz das listas
+uma estrutura bem flexível para guardar dados:
+```{r pressure, echo=FALSE}
+lista <- list(1:3, "a", c(TRUE, TRUE, FALSE, FALSE))
+lista
+```
+É muito comum darmos nomes para cada posição de uma lista:
+```{r pressure, echo=FALSE}
+dados_cliente <- list(cliente = "Ana", idade = 25, estado_civil = NA)
+
+dados_cliente
+```
+Agora, dentro da lista, o valor Ana, por exemplo, está sendo atribuido ao nome 
+cliente. Esse nome só existirá dentro da lista. 
+
+ISTO É UMA TABELA HASH, SEMELHANTE AO DICIONÁRIO DO PYTHON (nota minha).
+
+Um detalhe importante: os iguais utiizados nas atribuições dos nomes dentro da
+lista não podem ser subistituidos por <-
+
+Quando as posições de uma lista tem nome, podemos acessar seus valores diretamente
+utilizando o operador $
+
+```{r pressure, echo=FALSE}
+dados_cliente$cliente
+```
+```{r pressure, echo=FALSE}
+dados_cliente$idade
+```
+```{r pressure, echo=FALSE}
+dados_cliente[1]
+```
+Repare que o R devolve o valor dentro de cada posição, e não uma lista.
+```{r pressure, echo=FALSE}
+class(dados_cliente[1])
+```
+```{r pressure, echo=FALSE}
+class(dados_cliente$cliente)
+```
+Isso implica que, nesse exemplo, dados_cliente$cliente é equivalente a 
+dados_cliente[[1]]
+
+3.10 Mais sobre data frames
+
+```{r pressure, echo=FALSE}
+as.list(mtcars)
+```
+Verifique que cada coluna da base se transforma em um elemento da lista. E o nome
+de cada coluna vira o nome de cada posição. Isso é interessante, pois podemos
+usar nos dataframes as mesmas operações que aprendemos para listas.
+
+```{r pressure, echo=FALSE}
+# usar o operar $ para acessar cada elemento da lista (coluna do df)
+mtcars$mpg
+```
+E assim como cada elemento de uma lista também é uma lista, cada elemento (coluna)
+de um data frame também é um data frame
+```{r pressure, echo=FALSE}
+mtcars[1]
+```
+Data frames são um tipo especial de listas (por isso existe uma classe para eles)
+que têm as seguintes propriedades:
+
+1 - todos os seus elementos (colunas) precisam ter o mesmo comprimento (nº linhas)
+2 - todos os seus elementos (colunas) precisam ser nomeados
+3 - data frames têm 2 dimensões.
+
+Da mesma forma que podemos ver um dataframe como lista, podemos fazer o inverso
+
+```{r pressure, echo=FALSE}
+dados_cliente <- list(
+  cliente = c("Ana", "Beto", "Carla"),
+  idade = c(25, 30, 23),
+  estado_civil = c(NA, "Solteiro", "Casada")
+)
+
+dados_cliente
+```
+```{r pressure, echo=FALSE}
+as.data.frame(dados_cliente)
+```
+NÃO CONSEGUIMOS transformar uma lista em data frame se os elementos da lista 
+não tiverem o mesmo comprimento
+
+Transformar uma lista não nomeada em data frame é possível, mas R cria nomes nada
+agradáveis para as colunas
+
+```{r pressure, echo=FALSE}
+dados_cliente <- list(
+  c("Ana", "Beto", "Carla"),
+  c(25, 30, 23),
+  c(NA, "Solteira", "Casada")
+)
+
+as.data.frame(dados_cliente)
+```
+```{r pressure, echo=FALSE}
+class(mtcars)
+
+dim(mtcars)
+```
+A informação 32 11 se refere as dimensões do data frame. mtcars tem duas dimensões
+(como todo dataframe). A primeira tem comprimento 32 e a segunda, 11. Em outras
+palavras, 32 linhas (observações) e 11 colunas (variáveis).
+
+
+Podemos usar os testes lógicos para filtrar as linhas do nosso data frame
+```{r pressure, echo=FALSE}
+mtcars$cyl == 4
+```
+
+
 
 
 
