@@ -595,6 +595,206 @@ Podemos usar os testes lógicos para filtrar as linhas do nosso data frame
 mtcars$cyl == 4
 ```
 
+3.12 Controle de Fluxo
+
+if, else, for e while - nos permitem manipular de modo eficiente as ações do 
+computador
+
+3.12.1 Condicionamento: if e else
+
+Condição lógica
+
+No código abaixo, a função Sys.time(), que retorna a data/hora no momento da
+execução, só será avaliada se o objetivo x for igual a 1
+
+
+```{r pressure, echo=FALSE}
+# Não vai executar a função Sys.time()
+x <- 2
+
+if (x == 1){
+  Sys.time()
+}
+
+# Vai executar a função
+
+x <- 1
+
+if (x == 1){
+  Sys.time()
+}
+
+```
+O R só vai executar o que está na expressão dentro das chaves {} se a expressão
+que estiver dentro dos parenteses () retornar TRUE
+
+```{r pressure, echo=FALSE}
+x <-  c(1, 3, 10, 15)
+
+if (class(x) == "numeric"){
+  sum(x)
+}
+```
+```{r pressure, echo=FALSE}
+# Não vai executar a soma
+
+x <- c("a", "b", "b")
+
+if (class(x) == "numeric"){
+  sum(x)
+}
+
+
+
+```
+
+Acima, a soma só foi executada quando a classe do objeto x era numérica.
+
+```{r pressure, echo=FALSE}
+
+soma <- function(x, y){
+  if (class(x) == "numeric" & class(y) == "numeric"){
+    x + y
+  }
+}
+
+# Retorna a soma
+soma(1, 2)
+```
+```{r pressure, echo=FALSE}
+# Não retorna nada
+soma("a", "b")
+
+```
+
+Nesses casos, é comum o uso das funções return() e stop() para, respectivamente,
+retornar um resultado antecipadamente ou para execução da função e devolver ao 
+usuário uma mensagem de erro personalizada.
+
+Exemplo do uso do return()
+```{r pressure, echo=FALSE}
+# Devolvendo um resuldado antecipadamente
+minha_soma <- function(x, y){
+  if (class(x) == "numeric" & class(y) == "numeric"){
+    soma <- x + y
+    return(soma)
+  }
+  NA
+}
+
+# Retorna a soma
+minha_soma(1, 2)
+
+# Retorna NA
+minha_soma("a", 1)
+```
+Usando stop()
+```{r pressure, echo=FALSE}
+# Agora, devolve um erro
+minha_soma <- function(x, y){
+  if  (class(x) != "numeric" | class(y) != "numeric"){
+    stop("A classe dos objetos x e y deve ser númerica.")
+  }
+  x + y
+}
+
+# Retorna a soma
+minha_soma(1, 2)
+
+# Retorna erro
+minha_soma("a", 3)
+
+
+```
+A classe acima, testa no if se a classe de x ou a classe de y é diferente de 
+numeric, isto é, se pelo menos um dos dois não é um número. Se esse teste retornar
+TRUE, a função para a sua execução e devolve para o usuário a mensagem
+de erro
+
+O else funciona como uma extensão do if, dando uma alternativa caso o teste
+executado seja falso
+```{r pressure, echo=FALSE}
+# Vai fazer a soma
+x <- c(1, 3, 10, 15)
+
+if(class(x) == "numeric"){
+  sum(x)
+} else{
+  NA
+}
+
+# Vai retornar NA
+x <- c(1, 3, 19, "15")
+
+if (class(x) == "numeric"){
+  sum(x)
+} else{
+  NA
+}
+```
+Podemos usar o else para encadear vários ifs
+```{r pressure, echo=FALSE}
+x <- 0
+
+if(x < 0){
+  "Negativo"
+} else if(x == 0) {
+  "Neutro"
+} else if(x > 0) {
+  "Positivo"
+}
+```
+Note que o if no último else poderia ser omitido
+
+3.12.2 Iteradores: for e while
+
+O for pode ser utilizado para fazer os loopings de programação
+```{r pressure, echo=FALSE}
+numero_de_colunas <- ncol(mtcars)
+
+for (coluna in 1: numero_de_colunas) {
+  media <- mean(mtcars[, coluna])
+  
+  print(media)
+}
+```
+O código acima vai calcular a média de cada coluna do data frame mtcars. Alguns
+pontos importantes:
+
+- No exemplo, temos 11 iterações e o objeto coluna é o iterador;
+- Como numero_de_colunas é igual a 11, a expressão 1:numero_de_colunas cria uma
+sequência de números de 1 a 11;
+- A expressão coluna in 1:numeros_de_colunas indica que o calor de coluna será
+1 na primeira iteração, 2 na segunda e assim por diante.
+- O código dentro do for não retornado para o usuário ao fim de cada iteração.
+Por isso, para ver os resultados no Console, usaremos a função print().
+
+Também podemos salvar as médias em um vetor
+```{r pressure, echo=FALSE}
+nummero_de_colunas <- ncol(mtcars)
+
+# Antes, criamos um vetor vazio.
+medias <- c()
+
+for (coluna in 1:numero_de_colunas) {
+  medias[coluna] <- mean(mtcars[,coluna])
+}
+
+medias
+```
+Assim como o for, o while também é um iterador.
+```{r pressure, echo=FALSE}
+i <- 1
+
+while (i < 3){
+  print(i)
+  i <- i + 1
+}
+```
+É importante que o valor de i seja atualizado em cada interação, caso contrário
+a função entrará em um loop infinito.
+
+Exercícios
 
 
 
