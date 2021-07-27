@@ -1,8 +1,9 @@
-# Analise_Correspondencia_Covid
+# Análise de Correspondência Simples
 
-Pequeno exemplo feito em Python, de uma Anacor (Análise de Correspondência Simples) completa:
+Exemplo de aplicação feito em Python de uma Anacor (Análise de Correspondência Simples) completa:
 
-Principais passos:
+Passos:
+
 * Tabela de Frequência
 * Matriz de Correspondências
 * Qui²
@@ -13,3 +14,5 @@ Principais passos:
 * Variância Explicada
 * Escolha dos principais componentes
 * Plotagem dos dados
+
+Referência: [Marcus Freita](https://github.com/Marcus-V-Freitas/Analise_Correspondencia_Covid)
